@@ -2,7 +2,9 @@
     <div class="col">
         <div class="card shadow-sm">
             <a href="{% url 'post_detail' post.slug %}">
+                {% if post.photo %}
                 <img src="{{ post.photo.url }}" class="card-img-top" alt="">
+                {% endif %}
             </a><center>
             <small>{{post.price|floatformat:1}}$</small>
             <h3 class="mt-5">{{ post.title|title }}</h3>
