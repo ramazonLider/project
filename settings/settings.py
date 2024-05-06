@@ -1,9 +1,11 @@
 import os
 from pathlib import Path
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+load_dotenv()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -63,11 +65,11 @@ WSGI_APPLICATION = 'settings.wsgi.app'
 DATABASES = {
     "default": {
         "ENGINE" : "django.db.backends.postgresql",
-        "NAME" : os.environ['DBNAME'],
-        "USER" : os.environ['DBUSER'],
-        "PASSWORD" : os.environ['DBPASSWORD'],
-        "HOST" : os.environ['DBHOST'],
-        "PORT" : os.environ['DBPORT']
+        "NAME" : os.environ.get('DBNAME'),
+        "USER" : os.environ.get('DBUSER'),
+        "PASSWORD" : os.environ.get('DBPASSWORD'),
+        "HOST" : os.environ.get('DBHOST'),
+        "PORT" : os.environ.get('DBPORT')
     }
 }
 
